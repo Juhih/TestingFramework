@@ -18,7 +18,7 @@ namespace TestingFramework.CommonFunctions
             objWebdriverMethods.Sendkeys(LoginLocators.Password, WebdriverMethods.GetValueFromJsonFile("Password"));
         }
 
-        public void clickOnLoginButton()
+        public void ClickOnLoginButton()
         {
             objWebdriverMethods.Click(LoginLocators.LoginButton);            
         }
@@ -33,25 +33,25 @@ namespace TestingFramework.CommonFunctions
             objWebdriverMethods.Click(AdminLocators.AddButton);
         }
 
-        public void AddAdminDetails(string UserRole, string EmployeeName, string UserName, string Status, string Password)
+        public void AddAdminDetails(string userRole, string employeeName, string userName, string status, string password)
         {
-            objWebdriverMethods.SelectValueFromDropdown(AdminLocators.UserRoleDropdown, UserRole);
-            objWebdriverMethods.Sendkeys(AdminLocators.EmployeeNameField, EmployeeName);
-            objWebdriverMethods.Sendkeys(AdminLocators.UserNameField, UserName);
-            objWebdriverMethods.SelectValueFromDropdown(AdminLocators.StatusDropdown, Status);
-            objWebdriverMethods.Sendkeys(AdminLocators.PasswordField, Password);
-            objWebdriverMethods.Sendkeys(AdminLocators.ConfirmPasswordField, Password);
+            objWebdriverMethods.SelectValueFromDropdown(AdminLocators.UserRoleDropdown, userRole);
+            objWebdriverMethods.Sendkeys(AdminLocators.EmployeeNameField, employeeName);
+            objWebdriverMethods.Sendkeys(AdminLocators.UserNameField, userName);
+            objWebdriverMethods.SelectValueFromDropdown(AdminLocators.StatusDropdown, status);
+            objWebdriverMethods.Sendkeys(AdminLocators.PasswordField, password);
+            objWebdriverMethods.Sendkeys(AdminLocators.ConfirmPasswordField, password);
 
         }
 
-        public void clickOnSaveButton()
+        public void ClickOnSaveButton()
         {
             Thread.Sleep(500);
             objWebdriverMethods.Click(AdminLocators.SaveButton);
         }
 
 
-        public bool VerifyUserAdded(string UserRole, string EmployeeName, string UserName, string Status)
+        public bool VerifyUserAdded(string userRole, string employeeName, string userName, string status)
         {
             objWebdriverMethods.WaitForElementToDisplay(AdminLocators.AdminTable);
             bool isRecordFound = false;
@@ -63,10 +63,10 @@ namespace TestingFramework.CommonFunctions
                 {                    
                     IList<IWebElement> Cells = row.FindElements(By.TagName("td"));
                     
-                        if (Cells[1].Text.Equals(UserName) &&
-                            Cells[2].Text.Equals(UserRole) &&
-                            Cells[3].Text.Equals(EmployeeName)&&
-                            Cells[4].Text.Equals(Status))
+                        if (Cells[1].Text.Equals(userName) &&
+                            Cells[2].Text.Equals(userRole) &&
+                            Cells[3].Text.Equals(employeeName)&&
+                            Cells[4].Text.Equals(status))
                         {
                             isRecordFound = true;
                             break;
@@ -81,9 +81,9 @@ namespace TestingFramework.CommonFunctions
             return isRecordFound;
         }
 
-        public void deleteUser(string UserName)
+        public void DeleteUser(string userName)
         {
-            objWebdriverMethods.Click(By.XPath(AdminLocators.DeleteChecbox.Replace("<<UserName>>", UserName)));
+            objWebdriverMethods.Click(By.XPath(AdminLocators.DeleteChecbox.Replace("<<UserName>>", userName)));
             objWebdriverMethods.Click(AdminLocators.DeleteButton);
             objWebdriverMethods.Click(AdminLocators.OkButton);
         }

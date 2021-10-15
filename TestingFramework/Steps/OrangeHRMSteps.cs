@@ -57,7 +57,7 @@ namespace TestingFramework.Steps
         {
             try
             {
-                objOrangeHRMFunctions.clickOnLoginButton();
+                objOrangeHRMFunctions.ClickOnLoginButton();
             }
             catch (Exception e)
             {
@@ -94,7 +94,7 @@ namespace TestingFramework.Steps
         {
             try
             {
-                objOrangeHRMFunctions.clickOnSaveButton();
+                objOrangeHRMFunctions.ClickOnSaveButton();
             }
             catch (Exception e)
             {
@@ -171,7 +171,7 @@ namespace TestingFramework.Steps
         {
             try
             {
-                objOrangeHRMFunctions.deleteUser(userName);
+                objOrangeHRMFunctions.DeleteUser(userName);
             }
             catch (Exception e)
             {
